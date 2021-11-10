@@ -2,7 +2,7 @@
 
 I have used many libraries here, but 'pyttsx3' and 'SpeechRecognition' are most important libraries in this project. They are used for Text-to-Speech and Speech-to-Text conversion operations.
 It has the ability to scrap the details from web, recognize the persons by their faces, detecting the object, managing bluetooth and wi-fi devices, handling media files and messages. 
-It can do some operation automatically while starting.
+It will do some operation automatically while starting.
 
 Modules used:
   - import pyttsx3

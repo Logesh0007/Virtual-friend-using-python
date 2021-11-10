@@ -63,12 +63,12 @@ def date_today():
 def command():
     r = sr.Recognizer()
     with sr.Microphone() as source:
-        playsound.playsound("D:\\Python\\Project_TEZ\\Music\\start.mp3")
+        playsound.playsound("start.mp3")
         r.pause_threshold=1
         r.adjust_for_ambient_noise(source)
         audio = r.listen(source)
     try:
-        playsound.playsound("D:\\Python\\Project_TEZ\\Music\\stop.mp3")
+        playsound.playsound("stop.mp3")
         query = r.recognize_google(audio,language='en-in')
     
     except Exception as e:
@@ -80,13 +80,13 @@ def command():
 def pass_command():
     r = sr.Recognizer()
     with sr.Microphone() as source:
-        playsound.playsound("D:\\Python\\Project_TEZ\\Music\\start.mp3")
+        playsound.playsound("start.mp3")
         r.pause_threshold = 1
         r.adjust_for_ambient_noise(source)
         audio = r.listen(source)
         
     try:
-        playsound.playsound("D:\\Python\\Project_TEZ\\Music\\stop.mp3")
+        playsound.playsound("stop.mp3")
         speak("wait a moment")
         query = r.recognize_google(audio,language = 'en-in')
     
@@ -104,7 +104,7 @@ def reminder():
         if alarm_time == current_time:
             notification = ToastNotifier()
             notification.show_toast("Alarm", message, duration = 50)
-            playsound.playsound("D:\\Python\\Project_TEZ\\Music\\Marvel Theme.mp3")
+            playsound.playsound("Marvel Theme.mp3")
             break
 
 def bluetooth_devices():
@@ -141,11 +141,12 @@ def battery_percentage():
 
 if __name__ == "__main__":
     while True:
-        password = "hey mark"
-        if password in ["i am lokesh", "hey mark", "mark 3"]:
+        password = pass_command().lower()
+        if password in ["hey mark", "mark"]:    # can be changed as your wish
+            speak("just a moment")
+            time.sleep(1)
             print("Activating  mark 3.... ")
             speak("Activating, mark 3")
-            speak("just a moment")
             speak("hey buddy")
             wishme()
             date_today()
@@ -264,10 +265,10 @@ if __name__ == "__main__":
                     bluetooth_devices()
 
                 elif query in ["scan him", "scan her", "find who he is", "find who she is", "who is this", "who he is", "who she is"]:
-                    os.startfile("D:\\Python\\AI\\sources\\Day - 7\\Face recognition.py")
+                    os.startfile("Face recognition.py")
 
                 elif query in ["find a face", "search for face", "face detect on", "detect the face"]:
-                    os.startfile("D:\\Python\\AI\\sources\\Day - 5\\person face detector.py")
+                    os.startfile("person face detector.py")
 
                 elif query in ["i'll call you later buddy", "see you later", "bye", "see you", "call you later"]:
                     speak("bye buddy ")
